@@ -1,0 +1,82 @@
+body {
+	min-width: 200px;
+	background: #3a3a3a;
+	color: #cfcfcf;
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	background: url('../img/header.png') no-repeat;
+	padding: 6px;
+	overflow: hidden;
+	text-align: center;
+	cursor: pointer;	
+}
+
+#logo {
+	width: auto;
+	height: 35px;	
+}
+
+.section {
+	padding: 12px;
+}
+
+.pickup-info {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+
+}
+
+.pickup-info > li {
+	border-left: 4px solid #6892b8;	
+	margin-top: 6px;
+	background-color: rgb(85, 111, 134);
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 400;		
+	font-size: 21px;
+	-webkit-user-select: none;
+	display: block;
+	padding: 3px 6px;
+	padding-left: 3px;
+	line-height: 24px;
+	box-sizing: border-box;
+}
+.pickup-info > li:first-child {
+	margin-top: 0;
+}
+
+.pickup-info li > .count {
+	float: right;
+}
+
+.class-emblem-icon {
+	background-image: url('../img/class_emblem_icons.png');
+	vertical-align: bottom;
+	margin-right: 6px;
+	padding: 12px;
+	display: inline-block;
+	background-repeat: no-repeat;	
+	background-color: transparent;
+	box-sizing: border-box;
+}
+
+.class-emblem-icon.scout {
+	background-position: center -30px;
+}
+
+.class-emblem-icon.soldier {
+	background-position: center -60px;
+}
+
+.class-emblem-icon.demoman {
+	background-position: center -120px;
+}
+
+.class-emblem-icon.medic {
+	background-position: center -210px;
+}
