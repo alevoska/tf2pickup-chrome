@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "TF2Pickup.net",
 	"description": "Current status of TF2Pickup.net 6v6 pickup.",
-	"version": "0.3",
+	"version": "0.4",
 	"author": "zoob",
 	"homepage_url": "http://tf2pickup.net",
 	"short_name": "TF2Pickup.net",
