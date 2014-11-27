@@ -12,7 +12,8 @@
 	},
 	"permissions": [
 		"http://tf2pickup.net/ajax/*",
-		"notifications"
+		"notifications",
+		"storage"
 	],
 	"background": {
 		"scripts": ["js/update.js"]

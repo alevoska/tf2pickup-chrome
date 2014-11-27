@@ -7,12 +7,26 @@
 }
 
 body {
+	background: #4d4d4d;
+	color: #cfcfcf;
+	font-family: 'Roboto Condensed', sans-serif;	
+	margin: 0;
+	padding: 0;	
+	font-size: 16px;
+}
+
+.container {	
+	max-width: 740px;
+	padding: 20px;
+	background: #3a3a3a;
+	border: thin solid #333;
+	min-width: 300px;
+	margin: 30px auto;
+}
+
+.popup {
 	min-width: 200px;
 	background: #3a3a3a;
-	color: #cfcfcf;
-	font-family: 'Roboto Condensed', sans-serif;
-	margin: 0;
-	padding: 0;
 }
 
 #header {

@@ -10,7 +10,13 @@
         medic: '-'
     };
 
-    pickup.refresh = function () {
+    pickup.refresh = function () {        
+        chrome.storage.sync.get({
+            enableNotifications: false,
+        }, function(items) {
+            pickup.enableNotifications = items.enableNotifications;
+        });
+
         var request = new XMLHttpRequest();
         request.open('GET', 'http://tf2pickup.net/ajax/pickup.json', true);
         request.onload = function () {
@@ -34,17 +40,15 @@
 
                 pickup.refreshView();
                 pickup.notify(numPlayers);
+            } else {
+                console.error('Failed to download pickup.json');
+                pickup.clearView();                
             }
         };
 
         request.onerror = function() {
-            console.log('Failed to load pickup.json');
-            chrome.browserAction.setBadgeText({ text: '-' });
-            pickup.scout = '-';
-            pickup.soldier = '-';
-            pickup.demoman = '-';
-            pickup.medic = '-';
-            refreshView();
+            console.error('Failed to connect to server');
+            pickup.clearView();
         };
 
         request.send();
@@ -60,11 +64,20 @@
         }           
     }
 
-    pickup.notify = function(numPlayers) {  
-        if (pickup.enableNotifications == true && numPlayers > 7) {
+    pickup.clearView = function() {
+        chrome.browserAction.setBadgeText({ text: '-' });
+        pickup.scout = '-';
+        pickup.soldier = '-';
+        pickup.demoman = '-';
+        pickup.medic = '-';
+        refreshView();       
+    }
+
+    pickup.notify = function(numPlayers) {
+        if (pickup.enableNotifications === true && numPlayers > 6) {
             chrome.notifications.create('pickup', {
                 type: 'basic',
-                iconUrl: 'icon.png',
+                iconUrl: 'img/icon.png',
                 title: 'TF2Pickup.net',
                 message: 'Pickup is filling up!',           
             }, function (notificationId) {});
@@ -77,7 +90,7 @@
         pickup.refresh();
         var interval = pickup.updateInterval;
 
-        if (!isFinite(interval) || interval < 0) {
+        if (!isFinite(interval) || interval < 10) {
             interval = 30;
         }
 
